@@ -11,9 +11,12 @@ target=Iris.target
 iris = pd.read_csv("Iris.csv")
 x = iris.iloc[:, [0, 1, 2, 3]].values
 iris[0:10]
+
 from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters = 3, max_iter = 300, random_state = 0)
 y_kmeans = kmeans.fit_predict(x)
+print(target)
+print(y_kmeans)
 
 fig, axes = plt.subplots(1, 2, figsize=(14,6))
 axes[1].scatter(x[y_kmeans == 0, 0], x[y_kmeans == 0, 1], s = 100, c = 'purple')
